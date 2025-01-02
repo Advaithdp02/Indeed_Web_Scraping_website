@@ -8,7 +8,8 @@ import csv
 
 # Initialize the WebDriver
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
-
+job=input("Enter The Required Job :")
+location=input("Enter the Location:")
 def fetch_job_data(url, page_number):
     # Open the page
     driver.get(url)
@@ -62,7 +63,7 @@ def scrape_all_pages(start_url, max_pages=5):
     return all_jobs
 
 # Starting URL
-start_url = "https://in.indeed.com/jobs?q=python+developer&l=Bengaluru%2C+Karnataka"
+start_url = f"https://in.indeed.com/jobs?q={job}&l={location}"
 
 # Scrape all pages
 jobs = scrape_all_pages(start_url, max_pages=5)
